@@ -80,6 +80,22 @@ $(document).ready(function() {
             }
         });
     });
+    $(document).on('submit', '#form-config-service', function(e) {
+        e.preventDefault();
+        var data = $(this).serialize();
+        var url = $(this).attr('action')
+        $.ajax({
+            async: false,
+            type: "POST",
+            url: url,
+            data: data,
+            datatype: 'json',
+            success: function(data) {
+                if (data.success) {
+                console.log("yay");
+            } else { console.log(data);}}
+        });
+    });
     $(document).on('click', '.service_run_button', function(e) {
         e.preventDefault();
         var service_url = $(this).attr('data-url');
