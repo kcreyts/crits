@@ -91,9 +91,8 @@ $(document).ready(function() {
             data: data,
             datatype: 'json',
             success: function(data) {
-                if (data.success) {
-                console.log("yay");
-            } else { console.log(data);}}
+                $('html').html(data);
+            }
         });
     });
     $(document).on('click', '.service_run_button', function(e) {
